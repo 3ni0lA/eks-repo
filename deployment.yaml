@@ -17,7 +17,7 @@ metadata :
         container:
         -  name: laravel-pod
            image: 3niola/webapp02:latest
-           imagePULLPolicy: IfNotPresen
+           imagePULLPolicy: IfNotPresent
            ports: 
            - container_port:  80
         env:
