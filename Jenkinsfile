@@ -13,12 +13,10 @@
                         sh "terraform init"
                         sh "terraform apply -auto-approve"
                     }
-                     }
                 }
-              }
-         }
-   }
-  stage("Deploy to EKS") {
+            }
+        }  
+                      stage("Deploy to EKS") {
             steps {
                 script {
                     dir('sockapp') {
