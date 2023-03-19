@@ -9,7 +9,7 @@
               stage("Create an EKS Cluster") {
                 steps {
                      script {
-                         dir('jenkins-server') {
+                         dir('eks-repo') {
                         sh "terraform init"
                         sh "terraform apply -auto-approve"
                     }
