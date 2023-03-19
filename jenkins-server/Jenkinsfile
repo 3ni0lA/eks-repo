@@ -18,3 +18,15 @@
               }
          }
    }
+  stage("Deploy to EKS") {
+            steps {
+                script {
+                    dir('sockapp') {
+                        sh "aws eks update-kubeconfig --name demo"
+                        sh "kubectl apply -f demo.yaml"
+                    }
+                }
+            }
+        }
+    }
+}
