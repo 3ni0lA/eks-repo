@@ -1,29 +1,25 @@
 ---
 apiVersion: apps/v1
 kind: Deployment
-metadata : 
-   namespace: laravel
-   name: laravel
-   spec: 
-    replicas: 3
-    selector: 
-      match_labels:
-        app: mylaravelapp
-      template: 
-      metadata: 
-        labels:
-          app: = "my-laravel-app"
-      spec :
-        container:
-        -  name: laravel-pod
-           image: 3niola/webapp02:latest
-           imagePULLPolicy: IfNotPresen
-           ports: 
-           - container_port:  80
-        env:
-          - name: PORT
-            value: "80"
-      
+metadata:
+  labels:
+    app: laravel
+  namespace: laravel
+  name: laravel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: laravel
+  template:
+    metadata:
+      labels:
+        app: laravel
+    spec:
+      containers:
+      - image: 3niola/webapp02:latest
+        name: laravel
+
 # }
 # locals {
 #   lb_name = split("-", split(".", kubernetes_service.laravel.status.0.load_balancer.0.ingress.0.hostname).0).0
